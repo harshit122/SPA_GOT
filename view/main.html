@@ -32,8 +32,10 @@
 
    </div>
    <!-- Carousel END -->
-
-<br/><br/><br/><br/>
+<style type="text/css">
+   .mbutton {border-radius: 50%;}
+</style>
+<br/><br/>
 <div class="text-center">
    <button class="mbutton" ng-click= "mainCtrl.allShow()">ALL</button>
    <button class="mbutton" ng-click= "mainCtrl.booksShow()">BOOKS</button>
@@ -42,10 +44,10 @@
 </div>
 <br/>
 <!--TO DISPLAY ALL DATA-->
-<div class="container-fluid" ng-if="mainCtrl.all">
+<div class="container-fluid margins" ng-if="mainCtrl.all">
    <div class="row">
       <div class="col-md-8">
-         <div class="input-group" style="margin:10px 0px;">
+         <div class="input-group" style="margin:20px 50px ;">
             <span class="input-group-addon">Search by Name
             </span>
             <input type="text" name="book" class="form-control" placeholder="Name here.." ng-model="searchName.name">
