@@ -1,0 +1,7 @@
+<div class="col-xs-11 col-md-4 col-md-offset-1 text-center characters">
+   <img src="images/char.png" style="width: 45px;height: 40px"/>
+   <h3> {{ item.name || "Name is kept Secret" }}</h3>
+   <h5 >Alias :  " {{ item.aliases[0] || "Not Available"}} "</h5>
+   <h5>Gender : {{ item.gender || "Not Available"}}</h5>
+   <a ng-href='#/characters/{{ item.url.split("/").pop() }}' class="btn btn-default btn-custom" style="display:inline-block;">Know more</a>    
+</div>

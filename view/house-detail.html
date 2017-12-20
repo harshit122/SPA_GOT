@@ -1,0 +1,42 @@
+<br/><br/><br/><br/>
+<div class="container">
+   <div class="row" ng-repeat = "data in hCtrl.hData">
+      <div class="col-xs-12 text-center">
+         <div style="color: dimgrey;">
+            <h4 style="margin: 10px 5px;" ng-if ='data.name != ""'><b> {{ data.name }}  </b></h4>
+            <h4>Region : {{ data.region || "Data Unavailable" }}</h4>
+            <h4>Seats : {{ data.seats[0] || "Data Unavailable" }}</h4>
+            <h4>Titles : {{ houseCtrl.titles || "Data Unavailable" }}</h4>
+            <h4>Founded : {{ data.founded || "Data Unavailable" }}</h4>
+            <p> Words: {{ data.words || "Data Unavailable" }}</p>
+            <h4>
+               Heir : 
+               <h6><a ng-href='#/characters/{{ data.heir.split("/").pop() }}'>{{ data.heir || "Data Unavailable" }}</a></h6>
+            </h4>
+            <h4>
+               Current Lord : 
+               <h6><a ng-href='#/characters/{{ data.currentLord.split("/").pop() }}'>{{ data.currentLord || "Data Unavailable" }}</a></h6>
+            </h4>
+            <h4>
+               Overlord :
+               <h6 class="h6"><a ng-href='#/houses/{{ data.overlord.split("/").pop() }}'>{{ data.overlord || "Data Unavailable" }}</a></h6>
+            </h4>
+            <p>Coat Of Arms : "{{ data.coatOfArms || "Data Unavailable" }}"</p>
+         </div>
+         <div ng-if = 'data.swornMembers.length >= 1' style="color: dimgrey;">
+            <h3>Sworn Members</h3>
+            <hr style=" border-top: 1px solid black; margin-top: 5px;">
+            <hr/>
+            <div ng-repeat ="sworn in data.swornMembers">
+               <h6><a ng-href ='#/characters/{{ sworn.split("/").pop() }}'>{{ sworn }}</a></h6>
+            </div>
+         </div>
+         <!--  sworn members div ends -->
+         <div class=" col-xs-12" style="display: flex;justify-content: center;margin: 10px 0px;">
+            <a ng-href="#/" class="btn btn-default" style="display: inline-block;">Home</a> 
+         </div>
+      </div>
+   </div>
+   <!-- Row ends -->
+</div>
+<!-- Container Ends -->
