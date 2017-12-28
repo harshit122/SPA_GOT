@@ -6,7 +6,7 @@ myApp.controller("booksController",["$http","cService","$routeParams",function($
 
 	this.booksData = [];
 	this.author;
-
+	this.l;
 	
 	
 	this.booksDetail = function(){

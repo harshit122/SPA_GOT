@@ -10,7 +10,7 @@
   color: rgba(0,0,0,1);
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  background: #093301;
+  background: linear-gradient(to left, #999966 -4%, #333300 48%);
     margin-top: 5%;
 		
 	}
@@ -25,13 +25,13 @@
   color: rgba(0,0,0,1);
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  background: #34495e;
+  background: linear-gradient(to right, #8c1ce3 0%, #9900cc 100%);
     margin-top: 5%;
 		
 	}
 .characters{
 		
-		 -webkit-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   border: 2px solid;
@@ -40,7 +40,7 @@
   color: rgba(0,0,0,1);
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  background: #03484f;
+  background: linear-gradient(to left, #0099ff -4%, #003366 50%);
     margin-top: 5%;
 		
 	}
