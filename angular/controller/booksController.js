@@ -16,7 +16,8 @@ myApp.controller("booksController",["$http","cService","$routeParams",function($
 		.then(function successCallback(response){
 	
 		main.booksData.push(response.data);
-
+		console.log("books controller")
+		console.log(response.data)
 
 		this.people =[]; // authors
 		

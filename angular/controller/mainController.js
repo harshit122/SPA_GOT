@@ -8,10 +8,7 @@ myApp.controller("mainController",["cService",function(cService){
     this.all=true;
     this.book=false;
     this.character=false;
-    this.house=false;
-    
-  
-    
+    this.house=false;   
 
 	this.books= function (){
         
@@ -22,9 +19,10 @@ myApp.controller("mainController",["cService",function(cService){
             
             main.allBooks=response.data;
             main.allBookArray.push(main.allBooks);
-             //console.log(main.allBooks);
+            console.log("books")
+            //  console.log(main.allBooks);
            main.allData.push(main.allBooks);
-           // console.log(main.allData);
+            //console.log(main.allData);
       
             
             //main.name=response.data[0].name;
