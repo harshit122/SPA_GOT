@@ -101,24 +101,31 @@
 <!--TO DISPLAY ALL BOOKS-->
 <div class="container-fluid">
    <div ng-if="mainCtrl.book">
-      <div class="col-md-4">
+      <div class="col-md-3">
          <div class="input-group filt-book" style="margin:10px 0px;">
             <span class="input-group-addon">Search by Name
             </span>
             <input type="text" name="book" class="form-control" placeholder="Book Name" ng-model="searchBookName.name">
          </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
          <div class="input-group filt-book" style="margin:10px 0px;">
             <span class="input-group-addon">Search by Publisher
             </span>
             <input type="text" name="book" class="form-control" placeholder="Book Publisher" ng-model="searchBookPub.publisher">
          </div>
       </div>
-      <div class="col-md-4">
+        <div class="col-md-3">
+         <div class="input-group filt-book" style="margin:10px 0px;">
+            <span class="input-group-addon">Search by ISBN
+            </span>
+            <input type="text" name="book" class="form-control" placeholder="Book ISBN" ng-model="searchBookIsbn.isbn">
+         </div>
+      </div>
+      <div class="col-md-3">
          <button class="mbutton" type="button" ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" style="margin-left: 5px;"></span><span ng-show="mainCtrl.sortAllKey" style="margin-left: 5px;"></span></button>
       </div>
-      <div ng-repeat = "item in mainCtrl.allBookArray | filter:searchBookName | filter:searchBookPub | orderBy: mainCtrl.sortAllKey? '-name':'name'">
+      <div ng-repeat = "item in mainCtrl.allBookArray | filter:searchBookName | filter:searchBookPub | filter:searchBookIsbn | orderBy: mainCtrl.sortAllKey? '-name':'name'">
          <books-dir></books-dir>
       </div>
    </div>

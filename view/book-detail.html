@@ -1,6 +1,6 @@
 <br/><br/><br/><br/><br/>
 <div class="container-fluid">
-   <div style="color: dimgrey;">
+   <div style="color: white;">
       <div class="row" ng-repeat="data in bookCtrl.booksData">
          <div class="col-xs-12 text-center">
             <h2> {{ data.name }}</h2>
@@ -21,7 +21,7 @@
             </div>
          </div>
          <div class="col-xs-12" style="display: flex;justify-content: center;margin: 10px 0px;">
-            <a ng-href="#/" class="btn btn-default btn-custom" style="display: inline-block;">Home</a>
+             <p><button class="w3-button w3-blue w3-round-xxlarge" class="btn btn-default"  onclick="window.history.back();">back</button></p>
          </div>
       </div>
    </div>
