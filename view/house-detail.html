@@ -1,5 +1,5 @@
 
-<div class="singleHouseCard" style="margin-top:5% !important;margin-bottom:5% !important;">
+<div class="singleHouseCard" style="margin-top:4em !important;margin-bottom:5% !important;">
    <div class="row" ng-repeat = "data in hCtrl.hData">
 
         <div  class="col col-sm-12 col-md-12  text-center" style="color: white; size:10em ">
@@ -9,38 +9,66 @@
                <hr/>
          </div>
          <div class="col col-sm-5 col-md-5 text-center">
-          <div style="color: white;">
-            <h4>Region : {{ data.region || "Data Unavailable" }}</h4>
-            <h4>Seats : {{ data.seats[0] || "Data Unavailable" }}</h4>
-            <h4>Titles : {{ houseCtrl.titles || "Data Unavailable" }}</h4>
-            <h4>Founded : {{ data.founded || "Data Unavailable" }}</h4>
-
-            <h4>Founder : {{ data.founder || "Data Unavailable" }}</h4>
-            <p> Words: {{ data.words || "Data Unavailable" }}</p>
-            <h4>
-               Heir : 
-               <h6><a ng-href='#/characters/{{ data.heir.split("/").pop() }}'>{{ data.heir || "Data Unavailable" }}</a></h6>
-            </h4>
+             <div style="color: white;">
+                <div class="col col-sm-12 col-md-12">
+                  <h4>Region : {{data.region|| "Data Unavailable"}}</h4>
+               </div> 
+               <div class="col col-sm-12 col-md-12">
+                  <h4>Seats : {{ data.seats[0] || "Data Unavailable" }}</h4>
+               </div>
+               <div class="col col-sm-12 col-md-12">
+                  <h4>Titles {{hCtrl.titles || "Data Unavailable"}}</h4>
+               </div>
+               <div class="col col-sm-12 col-md-12">
+                  <h4>Founded : {{ data.founded || "Data Unavailable" }}</h4>
+               </div>
+               <div class="col col-sm-12 col-md-12">
+                  <h4>Founder : {{ data.founder || "Data Unavailable" }}</h4>
+               </div>
+                <div class="col col-sm-12 col-md-12">
+                  <h4>Words: {{ data.words || "Data Unavailable" }}</h4>
+               </div>
+               <div class="col col-sm-12 col-md-12">
+                     <h4>
+                     Heir : 
+                     <h6><a ng-href='#/characters/{{ data.heir.split("/").pop() }}'>{{ data.heir || "Data Unavailable" }}</a></h6>
+                     </h4>
+               </div>
+            </div>
          </div>
-      </div>
+
+          <div class="col col-sm-1 col-md-1">
+       <!-- Blank space for UI purposes -->
+       </div>
+
+
       <div class="col col-sm-5 col-md-5 text-center">
          <div style="color: white;">
-            <h4>
-               Current Lord : 
-               <h6><a ng-href='#/characters/{{ data.currentLord.split("/").pop() }}'>{{ data.currentLord || "Data Unavailable" }}</a></h6>
-            </h4>
-            <h4>
-               Overlord :
-               <h6 class="h6"><a ng-href='#/houses/{{ data.overlord.split("/").pop() }}'>{{ data.overlord || "Data Unavailable" }}</a></h6>
-            </h4>
-            <h4><p>Coat Of Arms :</h4> "{{ data.coatOfArms || "Data Unavailable" }}"</p>
+               <div class="col col-sm-12 col-md-12">
+                  <h4>
+                     Current Lord : 
+                     <h6><a ng-href='#/characters/{{ data.currentLord.split("/").pop() }}'>{{ data.currentLord || "Data Unavailable" }}</a></h6>
+                  </h4>
+               </div>
+               <div class="col col-sm-12 col-md-12">
+                  <h4>
+                     Overlord :
+                     <h6 class="h6"><a ng-href='#/houses/{{ data.overlord.split("/").pop() }}'>{{ data.overlord || "Data Unavailable" }}</a></h6>
+                  </h4>
+               </div>
+               <div class="col col-sm-12 col-md-12">
+                  <h4>Coat Of Arms :</h4> "{{ data.coatOfArms || "Data Unavailable" }}"
+                
+               </div>
          </div>
-         <div ng-if = 'data.swornMembers.length >= 1' style="color: white;">
-            <h3>Sworn Members : </h3>
-           <!-- <hr style=" border-top: 1px solid black; margin-top: 5px;"> 
-            <hr/> -->
-            <div ng-repeat ="sworn in data.swornMembers">
-               <h6><a ng-href ='#/characters/{{ sworn.split("/").pop() }}'>{{ sworn }}</a></h6>
+         <div class="col col-sm-12 col-md-12">
+            <div ng-if = 'data.swornMembers.length >= 1' style="color: white;">
+               <h3>Sworn Members : </h3>
+              <!-- <hr style=" border-top: 1px solid black; margin-top: 5px;"> 
+               <hr/> -->
+               <div ng-repeat ="sworn in data.swornMembers">
+                  <h6><a ng-href ='#/characters/{{ sworn.split("/").pop() }}'>{{ sworn }}</a></h6>
+               </div>
             </div>
          </div>
       </div>
@@ -54,3 +82,6 @@
    <!-- Row ends -->
 </div>
 <!-- Container Ends -->
+
+
+
