@@ -31,5 +31,5 @@ myApp.controller("houseController",["$http","cService","$routeParams",function($
 	}; // function ends
 
 	this.hDetails();
-	
+	console.log(this)
 }]) // controller ends

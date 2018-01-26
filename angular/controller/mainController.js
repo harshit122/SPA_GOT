@@ -1,4 +1,36 @@
-myApp.controller("mainController",["cService",function(cService){
+
+
+// here we define our unique filter
+
+myApp.filter('unique', function() {
+   // we will return a function which will take in a collection
+   // and a keyname
+   return function(collection, keyname) {
+      // we define our output and keys array;
+      var output = [], 
+          keys = [];
+      
+      // we utilize angular's foreach function
+      // this takes in our original collection and an iterator function
+      angular.forEach(collection, function(item) {
+   
+    
+          // we check to see whether our object exists
+          var key = item[keyname];
+          // if it's not already part of our keys array
+          if(keys.indexOf(key) === -1) {
+              // add it to our keys array
+              keys.push(key); 
+              // push this item to our final output array
+              output.push(item);
+          }
+      });
+      // return our array which should be devoid of
+      // any duplicates
+      return output;
+   };
+});
+myApp.controller("mainController",["cService",'$route','$scope',function(cService,$route,$scope){
 
 	var main = this;
     this.allData=[];
@@ -10,6 +42,14 @@ myApp.controller("mainController",["cService",function(cService){
     this.character=false;
     this.house=false;   
 
+     $scope.reloadRoute = function() {
+       $route.reload();
+      }
+
+
+
+
+
 	this.books= function (){
         
         for(var i=1;i<=12;i++){  // to get 12 books
@@ -18,8 +58,8 @@ myApp.controller("mainController",["cService",function(cService){
 		.then(function successCallback(response){
             
             main.allBooks=response.data;
-            main.allBookArray.push(main.allBooks);
-            console.log("books")
+            main.allBookArray.push(response.data);
+            //console.log("books")
             //  console.log(main.allBooks);
            main.allData.push(main.allBooks);
             //console.log(main.allData);
@@ -34,7 +74,8 @@ myApp.controller("mainController",["cService",function(cService){
         
 
         },function errorCallback(reason){
-		alert("Error in GET");
+		console.log("Error in GET");
+        console.log(reason)
 		});
         }
 	}
@@ -71,15 +112,19 @@ myApp.controller("mainController",["cService",function(cService){
 		cService.housesApi(i)
 		.then(function successCallback(response){
             
+            //console.log("response")
+            //console.log(response.data)
             main.allHouses=response.data;
+
             main.allHouseArray.push(main.allHouses);
-             //console.log(main.allBooks);
-           main.allData.push(main.allHouses);
+         //   console.log("all houses")
+         //    console.log(main.allHouseArray);
+            main.allData.push(main.allHouses);
             
       
             
             //main.name=response.data[0].name;
-           // console.log(main.name);
+
             
 		//main.apiData = response.data ;
 		
@@ -91,7 +136,8 @@ myApp.controller("mainController",["cService",function(cService){
 		});
         }
 	}
-	this.houses();  
+	
+    this.houses();  
     this.allShow=function(){ //to show all
         main.all=true;
         main.book= false;
@@ -119,6 +165,7 @@ myApp.controller("mainController",["cService",function(cService){
         main.house=true;
     }
     
-
+console.log("Alldara")
+            console.log(main);
 
 }]); // End Controller
