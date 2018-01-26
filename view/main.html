@@ -80,8 +80,8 @@
                <span class="input-group-addon">Search by Name
                </span>
                <select ng-model="searchCharName.name"  style="width:10em; ">
-                  <option class="form-control"  value="" enabled >--Select Name--</option>
-                  <option class="form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'name'" ng-if='item.name' value="{{item.name}}">{{item.name}}</option>
+                  <option class="input-group filt-book input-group-addon"  value="" enabled >--Select Name--</option>
+                  <option class="finput-group filt-book input-group-addon" ng-repeat="item in mainCtrl.allCharArray | unique : 'name'" ng-if='item.name' value="{{item.name}}">{{item.name}}</option>
                </select>                   
          </div>
       </div>
