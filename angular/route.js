@@ -6,7 +6,7 @@ myApp.config(["$routeProvider",function($routeProvider){
               controllerAs : "mainCtrl"
             })
     .when("/books/:id1",{
-              templateUrl : "view/book-detail.html",
+              templateUrl : "view/books.html",
               controller : "booksController",
               controllerAs : "bookCtrl"
             })
