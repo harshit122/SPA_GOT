@@ -1,12 +1,14 @@
-<br/><br/><br/><br/>
-<div class="container">
+
+<div class="singleHouseCard" style="margin-top:5% !important;margin-bottom:5% !important;">
    <div class="row" ng-repeat = "data in hCtrl.hData">
-         <div class="col-xs-12 text-center" style="color: white; size:10em ">
+
+        <div  class="col col-sm-12 col-md-12  text-center" style="color: white; size:10em ">
+              <i class="fa fa-male fa-5x" aria-hidden="true"></i>
                <h2 style="margin: 10px 5px;" ng-if ='data.name != ""'><b> {{ data.name }}  </b></h2>
                <hr style=" border-top: 1px solid black; margin-top: 5px;">
-            <hr/>
+               <hr/>
          </div>
-         <div class="col-xs-6 text-center">
+         <div class="col col-sm-5 col-md-5 text-center">
           <div style="color: white;">
             <h4>Region : {{ data.region || "Data Unavailable" }}</h4>
             <h4>Seats : {{ data.seats[0] || "Data Unavailable" }}</h4>
@@ -21,7 +23,7 @@
             </h4>
          </div>
       </div>
-      <div class="col-xs-6 text-center">
+      <div class="col col-sm-5 col-md-5 text-center">
          <div style="color: white;">
             <h4>
                Current Lord : 
@@ -44,7 +46,7 @@
       </div>
    </div>
          <!--  sworn members div ends -->
-         <div class=" col-xs-12" style="display: flex;justify-content: center;margin: 10px 0px;">
+         <div class="col col-sm-12 col-md-12 " style="display: flex;justify-content: center;margin: 10px 0px;">
             <p><button class="w3-button w3-blue w3-round-xxlarge" class="btn btn-default"  onclick="window.history.back();">back</button></p>
          </div>
       </div>
