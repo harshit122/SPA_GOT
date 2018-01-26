@@ -3,7 +3,7 @@
    <div class="row" ng-repeat = "data in hCtrl.hData">
 
         <div  class="col col-sm-12 col-md-12  text-center" style="color: white; size:10em ">
-              <i class="fa fa-male fa-5x" aria-hidden="true"></i>
+              <i class="fa fa-bank fa-5x" aria-hidden="true"></i>
                <h2 style="margin: 10px 5px;" ng-if ='data.name != ""'><b> {{ data.name }}  </b></h2>
                <hr style=" border-top: 1px solid black; margin-top: 5px;">
                <hr/>
@@ -23,17 +23,16 @@
                   <h4>Founded : {{ data.founded || "Data Unavailable" }}</h4>
                </div>
                <div class="col col-sm-12 col-md-12">
-                  <h4>Founder : {{ data.founder || "Data Unavailable" }}</h4>
+                  <h4>
+                     Founder : 
+                     <h6><a ng-href='#/characters/{{ data.heir.split("/").pop() }}'>{{ data.founder }}</a></h6>
+                     <h6 ng-if="data.founder==''">Data Unavailable</h6>                     
+                  </h4>
                </div>
                 <div class="col col-sm-12 col-md-12">
                   <h4>Words: {{ data.words || "Data Unavailable" }}</h4>
                </div>
-               <div class="col col-sm-12 col-md-12">
-                     <h4>
-                     Heir : 
-                     <h6><a ng-href='#/characters/{{ data.heir.split("/").pop() }}'>{{ data.heir || "Data Unavailable" }}</a></h6>
-                     </h4>
-               </div>
+        
             </div>
          </div>
 
@@ -44,6 +43,14 @@
 
       <div class="col col-sm-5 col-md-5 text-center">
          <div style="color: white;">
+                   <div class="col col-sm-12 col-md-12">
+                     <h4>
+                     Heir : 
+                     <h6><a ng-href='#/characters/{{ data.heir.split("/").pop() }}'>{{ data.heir }}</a></h6>
+                     <h6 ng-if="data.heir==''">Data Unavailable</h6>
+                     
+                     </h4>
+               </div>
                <div class="col col-sm-12 col-md-12">
                   <h4>
                      Current Lord : 
