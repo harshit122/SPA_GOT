@@ -25,7 +25,7 @@
                <div class="col col-sm-12 col-md-12">
                   <h4>
                      Founder : 
-                     <h6><a ng-href='#/characters/{{ data.heir.split("/").pop() }}'>{{ data.founder }}</a></h6>
+                     <h6><a ng-href='#/characters/{{ data.heir.split("/").pop() }}' style="color: #81d0e7;">{{ data.founder }}</a></h6>
                      <h6 ng-if="data.founder==''">Data Unavailable</h6>                     
                   </h4>
                </div>
@@ -43,10 +43,10 @@
 
       <div class="col col-sm-5 col-md-5 text-center">
          <div style="color: white;">
-                   <div class="col col-sm-12 col-md-12">
+               <div class="col col-sm-12 col-md-12">
                      <h4>
                      Heir : 
-                     <h6><a ng-href='#/characters/{{ data.heir.split("/").pop() }}'>{{ data.heir }}</a></h6>
+                     <h6><a ng-href='#/characters/{{ data.heir.split("/").pop() }}' style="color: #81d0e7;">{{ data.heir }}</a></h6>
                      <h6 ng-if="data.heir==''">Data Unavailable</h6>
                      
                      </h4>
@@ -54,13 +54,13 @@
                <div class="col col-sm-12 col-md-12">
                   <h4>
                      Current Lord : 
-                     <h6><a ng-href='#/characters/{{ data.currentLord.split("/").pop() }}'>{{ data.currentLord || "Data Unavailable" }}</a></h6>
+                     <h6><a ng-href='#/characters/{{ data.currentLord.split("/").pop() }}' style="color: #81d0e7;">{{ data.currentLord || "Data Unavailable" }}</a></h6>
                   </h4>
                </div>
                <div class="col col-sm-12 col-md-12">
                   <h4>
                      Overlord :
-                     <h6 class="h6"><a ng-href='#/houses/{{ data.overlord.split("/").pop() }}'>{{ data.overlord || "Data Unavailable" }}</a></h6>
+                     <h6 class="h6"><a ng-href='#/houses/{{ data.overlord.split("/").pop() }}' style="color: #81d0e7;">{{ data.overlord || "Data Unavailable" }}</a></h6>
                   </h4>
                </div>
                <div class="col col-sm-12 col-md-12">
@@ -74,7 +74,7 @@
               <!-- <hr style=" border-top: 1px solid black; margin-top: 5px;"> 
                <hr/> -->
                <div ng-repeat ="sworn in data.swornMembers">
-                  <h6><a ng-href ='#/characters/{{ sworn.split("/").pop() }}'>{{ sworn }}</a></h6>
+                  <h6><a ng-href ='#/characters/{{ sworn.split("/").pop() }}' style="color: #81d0e7;">{{ sworn }}</a></h6>
                </div>
             </div>
          </div>

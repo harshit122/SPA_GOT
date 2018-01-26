@@ -1,29 +1,56 @@
-<br/><br/><br/><br/><br/>
-<div class="singleBookCard ">
-   <div style="color: white;">
+
+<div class="singleBookCard" style="margin-top:4em !important;margin-bottom:5% !important;">
+   <div style="color: white; size:10em">
       <div class="row" ng-repeat="data in bookCtrl.booksData">
          <div class="col col-sm-12 col-md-12 text-center">
-            <h2> {{ data.name }}</h2>
+            <i class="fa fa-book fa-5x" aria-hidden="true"></i>
+           <h2 style="margin: 10px 5px;" ng-if ='data.name != ""'><b> {{ data.name }}  </b></h2>
             <hr style=" border-top: 1px solid black; margin-top: 5px;">
             <hr/>
          </div>
-         <div class="col col-sm-5 col-md-5 text-center"><br><br>
-            <h4><b>Author</b> : {{ bookCtrl.author }}</h4>
-            <h4><b>Country</b> : {{ data.country }}</h4>
-            <h4><b>Pages</b> : {{ data.numberOfPages }}</h4>
-            <h4><b>Publisher</b> : {{ data.publisher }}</h4>
-            <h4><b>Released on</b> : {{ data.released | date }}</h4>
-            <h4><b>ISBN</b> : {{ data.isbn  }}</h4>
-            <h4><b>Total Characters</b> : {{ data.characters.length  }}</h4>
+         <div class="col col-sm-5 col-md-5 text-center">
+            <div class="col col-sm-12 col-md-12">
+               <h4><b>Author</b> : {{ bookCtrl.author }}</h4>
+            </div>
+            <div class="col col-sm-12 col-md-12">
+               <h4><b>Country</b> : {{ data.country }}</h4>
+            </div>
+            <div class="col col-sm-12 col-md-12">
+               <h4><b>Pages</b> : {{ data.numberOfPages }}</h4>
+            </div>
+            <div class="col col-sm-12 col-md-12">
+               <h4><b>Publisher</b> : {{ data.publisher }}</h4>
+            </div>
+            <div class="col col-sm-12 col-md-12">
+               <h4><b>Released on</b> : {{ data.released | date }}</h4>
+            </div>
+            <div class="col col-sm-12 col-md-12">
+               <h4><b>ISBN</b> : {{ data.isbn  }}</h4>
+            </div>
+            <div class="col col-sm-12 col-md-12">
+               <h4><b>Total Characters</b> : {{ data.characters.length  }}</h4>
+            </div>
            
          </div>
-         <div class="col col-sm-5 col-md-5 text-center" ng-if = 'data.povCharacters.length >= 1'>
-            <h4><b>Main Characters</b></h4>
-      
-            <div  ng-repeat ="pov in data.povCharacters">
-               <h6><a ng-href ='#/characters/{{ pov.split("/").pop() }}'>{{ pov }}</a></h6>
+
+
+          <div class="col col-sm-1 col-md-1">
+       <!-- Blank space for UI purposes -->
+       </div>
+
+         <div class="col col-sm-5 col-md-5 text-center" >
+
+            <div class="col col-sm-12 col-md-12">      
+       
+               <h4><b>Main Characters :</b></h4>         
+               <div  ng-if = 'data.povCharacters.length >= 1' ng-repeat ="pov in data.povCharacters">
+                  <h6><a ng-href ='#/characters/{{ pov.split("/").pop() }}'  style="color: #81d0e7;">{{ pov}}</a></h6>
+               </div ng-if = 'data.povCharacters.length == 0'>Data Unavailable</div>
+               <div> 
             </div>
+
          </div>
+
          <div class="col col-sm-12 col-md-12" style="display: flex;justify-content: center;margin: 10px 0px;">
              <p><button class="w3-button w3-blue w3-round-xxlarge" class="btn btn-default"  onclick="window.history.back();">back</button></p>
          </div>
