@@ -1,210 +1,215 @@
-   
-   <div id="myCarousel" class="carousel slide margins" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-         <li data-target="#myCarousel" data-slide-to="1"></li>
-         <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
+  <br><br>  <br>
+   <div  class="margins" >
+      <div id="myCarousel" class="carousel slide margins" data-ride="carousel">
+         <!-- Indicators -->
+         <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+         </ol>
 
-   <div class="carousel-inner">
-         <div class="item active">
-             <img src="assets/images/photoOne.jpg" alt="Game Of Thrones" style="width:100%; height:50%;">
+      <div class="carousel-inner">
+            <div class="item active">
+                <img src="assets/images/photoOne.jpg" alt="Game Of Thrones" style="width:100%; height:50%;">
+            </div>
+            <div class="item">
+                <img src="assets/images/photoTwo.jpg" alt="Game Of Thrones" style="width:100%;">
+            </div>
+            <div class="item">
+                <img src="assets/images/photoThree.jpg" alt="Game Of Thrones" style="width:100%;">
+            </div>
          </div>
-         <div class="item">
-             <img src="assets/images/photoTwo.jpg" alt="Game Of Thrones" style="width:100%;">
-         </div>
-         <div class="item">
-             <img src="assets/images/photoThree.jpg" alt="Game Of Thrones" style="width:100%;">
-         </div>
+
+               <!-- Left and right controls -->
+         <a class="left carousel-control" href="/#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+         </a>
+
+         <a class="right carousel-control" href="/#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+         </a>
+
       </div>
 
-            <!-- Left and right controls -->
-      <a class="left carousel-control" href="/#myCarousel" data-slide="prev">
-         <span class="glyphicon glyphicon-chevron-left"></span>
-         <span class="sr-only">Previous</span>
-      </a>
 
-      <a class="right carousel-control" href="/#myCarousel" data-slide="next">
-         <span class="glyphicon glyphicon-chevron-right"></span>
-         <span class="sr-only">Next</span>
-      </a>
-
+      <!-- Carousel END -->
+   <style type="text/css">
+      .mbutton {border-radius: 50%;}
+   </style>
+   <br/><br/>
+   <div class="text-center">
+      <button class="mbutton" ng-click= "mainCtrl.allShow()">ALL</button>
+      <button class="mbutton" ng-click= "mainCtrl.booksShow()">BOOKS</button>
+      <button class="mbutton" ng-click= "mainCtrl.charactersShow()">CHARACTERS</button>
+      <button class="mbutton" ng-click= "mainCtrl.housesShow()">HOUSES</button>
    </div>
+   <br/>
 
 
-   <!-- Carousel END -->
-<style type="text/css">
-   .mbutton {border-radius: 50%;}
-</style>
-<br/><br/>
-<div class="text-center">
-   <button class="mbutton" ng-click= "mainCtrl.allShow()">ALL</button>
-   <button class="mbutton" ng-click= "mainCtrl.booksShow()">BOOKS</button>
-   <button class="mbutton" ng-click= "mainCtrl.charactersShow()">CHARACTERS</button>
-   <button class="mbutton" ng-click= "mainCtrl.housesShow()">HOUSES</button>
-</div>
-<br/>
-
-
-<!--TO DISPLAY ALL DATA-->
-<div class="container-fluid" ng-if="mainCtrl.all">
-   <div class="row">
-      <div class="col-md-8">
-         <div class="input-group" style="margin:20px 60px ;">
-            <span class="input-group-addon">Search 
-            </span>
-            <input type="text" name="book" class="form-control" placeholder="by Name .." ng-model="searchName.name">
-         </div>
-      </div>
-      <div class="col-md-4">
-         <button class="mbutton" type="button" ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" style="margin-left: 5px;"></span><span ng-show="mainCtrl.sortAllKey" style="margin-left: 5px;"></span></button>
-      </div>
-   </div>
-   <div class="row">
-      <div ng-repeat = "item in mainCtrl.allData | orderBy: mainCtrl.sortAllKey? '-name':'name' | filter:searchName">
-         <books-dir ng-if ="item.isbn"></books-dir>
-         <houses-dir ng-if ="item.region"></houses-dir>
-         <characters-dir ng-if ="item.gender"></characters-dir>
-      </div>
-   </div>
-</div>
-
-
-<!--TO DISPLAY ONLY CHARACTERS-->
-<div class="container-fluid">
-   <div ng-if="mainCtrl.character">
-
-      <div class="col-md-3">
-         <div class="input-group filt-book" style="margin:10px 0px;">           
-               <span class="input-group-addon">Search by Name
-               </span>
-               <select ng-model="searchCharName.name"  style="width:10em; ">
-                  <option class="input-group filt-book input-group-addon"  value="" enabled >--Select Name--</option>
-                  <option class="input-group filt-book input-group-addon" ng-repeat="item in mainCtrl.allCharArray | unique : 'name'" ng-if='item.name' value="{{item.name}}">{{item.name}}</option>
-               </select>                   
-         </div>
-      </div>
-
-      <div class="col-md-3">
-          <div class="input-group filt-book" style="margin:10px 0px;">           
-               <span class="input-group-addon">Search by Gender
-               </span>
-               <select ng-model="searchCharGender.gender"  style="width:10em; ">
-                  <option class="form-control"  value="" enabled >--Select Gender--</option>
-                  <option class="form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'gender'" ng-if='item.gender' value="{{item.gender}}">{{item.gender}}</option>
-               </select>                   
-         </div>
-      </div>
-
-      <div class="col-md-3">
-         <div class="input-group filt-book" style="margin:10px 0px;">           
-            <span class="input-group-addon">Search by Alias
-            </span>
-            <select ng-model="searchCharAlias.aliases"  style="width:10em; ">
-               <option class="form-control"  value="" enabled >--Select Alias--</option>
-               <option class="form-control" ng-repeat="item in mainCtrl.allCharArray"   ng-if='item.aliases[0]' value="{{item.aliases[0]}}">{{item.aliases[0]}}</option>
-            </select>                   
-         </div>
-
-      </div>
-      <div class="col-md-3">
-     
-         <button class="mbutton" type="button" ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" style="margin-left: 5px;"></span><span ng-show="mainCtrl.sortAllKey" style="margin-left: 5px;"></span></button>
-      </div>
-      <div ng-repeat = "item in mainCtrl.allCharArray | filter:searchCharName | filter:searchCharGender | filter:searchCharAlias |orderBy: mainCtrl.sortAllKey? '-name':'name'">
-         <characters-dir></characters-dir>
-      </div>
-   </div>
-</div>
-
-
-<!--TO DISPLAY ALL BOOKS-->
-<div class="container-fluid">
-   <div ng-if="mainCtrl.book">
-
-      <div class="col-md-3">
-         <div class="input-group filt-book" style="margin:10px 0px;">           
-               <span class="input-group-addon">Search by Name
-               </span>
-               <select ng-model="searchBookName.name"  style="width:10em; ">
-                  <option class="form-control"  value="" enabled >--Select Name--</option>
-                  <option class="form-control" ng-repeat="item in mainCtrl.allBookArray | unique : 'name'" value="{{item.name}}">{{item.name}}</option>
-               </select>                   
-         </div>
-      </div>
-
-      <div class="col-md-3">
-         <div class="input-group filt-book" style="margin:10px 0px;">           
-               <span class="input-group-addon">Search by Publisher
-               </span>
-               <select  ng-model="searchBookPub.publisher"  style="width:10em; ">
-                  <option class="form-control"  value="" enabled >--Select Publisher--</option>
-                  <option class="form-control" ng-repeat="item in mainCtrl.allBookArray | unique : 'publisher'" value="{{item.publisher}}">{{item.publisher}}</option>
-               </select>      
-               
-         </div>
-
-               
+   <!--TO DISPLAY ALL DATA-->
+   <div class="container-fluid" ng-if="mainCtrl.all">
+      <div class="row">
+         <div class="col col-sm-2 col-md-2">
+       <!-- Blank space for UI purposes -->
        </div>
-
-     <div class="col-md-3">
-         <div class="input-group filt-book" style="margin:10px 0px;">           
-               <span class="input-group-addon">Search by ISBN
+         <div class="col col-xs-12 col-sm-12 col-md-6 margins text-center">
+            <div class="input-group search" >
+               <span class="input-group-addon">Search 
                </span>
-               <select ng-model="searchBookIsbn.isbn"  style="width:10em; ">         
-                  <option class="form-control"  value="" enabled >--Select ISBN--</option>
-                  <option class="form-control"  ng-repeat="item in mainCtrl.allBookArray" value="{{item.isbn}}"  >{{item.isbn}}</option>
-               </select>                   
-         </div>      
+               <input type="text" name="book" class="form-control" placeholder="by Name .." ng-model="searchName.name">
+            </div>
+         </div>
+         <div class="col-md-4 col col-xs-12 col-sm-12  text-center" >
+            <button class="mbutton"  ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" ></span><span ng-show="mainCtrl.sortAllKey" ></span></button>
+         </div>
       </div>
-
-      <div class="col-md-3">
-             <span style="float:right; margin-top:1.5%; margin-right:4%;">
-                    <a href="#/" ng-click="reloadRoute()">Reset Filters
-                      <i class="fa fa-refresh" ></i>
-                    </a>
-                </span>
-         <button class="mbutton" type="button" ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" style="margin-left: 5px;"></span><span ng-show="mainCtrl.sortAllKey" style="margin-left: 5px;"></span></button>
-      </div>
-
-      <div ng-repeat = "item in mainCtrl.allBookArray | filter:searchBookName | filter:searchBookPub | filter:searchBookIsbn | orderBy: mainCtrl.sortAllKey? '-name':'name'">
-         <books-dir></books-dir>
+      <div class="row">
+         <div ng-repeat = "item in mainCtrl.allData | orderBy: mainCtrl.sortAllKey? '-name':'name' | filter:searchName">
+            <books-dir ng-if ="item.isbn"></books-dir>
+            <houses-dir ng-if ="item.region"></houses-dir>
+            <characters-dir ng-if ="item.gender"></characters-dir>
+         </div>
       </div>
    </div>
-</div>
 
 
-<!--TO DISPLAY ALL HOUSES-->
-<div class="container-fluid">
-   <div ng-if="mainCtrl.house">
+   <!--TO DISPLAY ONLY CHARACTERS-->
+   <div class="container-fluid">
+      <div ng-if="mainCtrl.character">
 
-      <div class="col-md-3">
-         <div class="input-group filt-book" style="margin:10px 0px;">           
-               <span class="input-group-addon">Search by Name
+         <div class="col-md-3">
+            <div class="input-group filt-book" style="margin:10px 0px;">           
+                  <span class="input-group-addon">Search by Name
+                  </span>
+                  <select ng-model="searchCharName.name"  style="width:10em; ">
+                     <option class="input-group filt-book input-group-addon"  value="" enabled >--Select Name--</option>
+                     <option class="input-group filt-book input-group-addon" ng-repeat="item in mainCtrl.allCharArray | unique : 'name'" ng-if='item.name' value="{{item.name}}">{{item.name}}</option>
+                  </select>                   
+            </div>
+         </div>
+
+         <div class="col-md-3">
+             <div class="input-group filt-book" style="margin:10px 0px;">           
+                  <span class="input-group-addon">Search by Gender
+                  </span>
+                  <select ng-model="searchCharGender.gender"  style="width:10em; ">
+                     <option class="form-control"  value="" enabled >--Select Gender--</option>
+                     <option class="form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'gender'" ng-if='item.gender' value="{{item.gender}}">{{item.gender}}</option>
+                  </select>                   
+            </div>
+         </div>
+
+         <div class="col-md-3">
+            <div class="input-group filt-book" style="margin:10px 0px;">           
+               <span class="input-group-addon">Search by Alias
                </span>
-               <select ng-model="searchHouseName.name"  style="width:10em; ">
-                  <option class="form-control"  value="" enabled >--Select Name--</option>
-                  <option class="form-control" ng-repeat="item in mainCtrl.allHouseArray | unique : 'name'" value="{{item.name}}"> {{item.name}}</option>
+               <select ng-model="searchCharAlias.aliases"  style="width:10em; ">
+                  <option class="form-control"  value="" enabled >--Select Alias--</option>
+                  <option class="form-control" ng-repeat="item in mainCtrl.allCharArray"   ng-if='item.aliases[0]' value="{{item.aliases[0]}}">{{item.aliases[0]}}</option>
                </select>                   
+            </div>
+
+         </div>
+         <div class="col-md-3">
+        
+            <button class="mbutton" type="button" ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" style="margin-left: 5px;"></span><span ng-show="mainCtrl.sortAllKey" style="margin-left: 5px;"></span></button>
+         </div>
+         <div ng-repeat = "item in mainCtrl.allCharArray | filter:searchCharName | filter:searchCharGender | filter:searchCharAlias |orderBy: mainCtrl.sortAllKey? '-name':'name'">
+            <characters-dir></characters-dir>
          </div>
       </div>
-      
-      <div class="col-md-3">
-         <div class="input-group filt-book" style="margin:10px 0px;">           
-            <span class="input-group-addon">Search by Region
-            </span>
-            <select ng-model="searchHouseRegion.region"  style="width:10em; ">
-               <option class="form-control"  value="" enabled >--Select Region--</option>
-               <option class="form-control" ng-repeat="item in mainCtrl.allHouseArray |  unique : 'region'" ng-if='item.region'  value="{{item.region}}"> {{item.region}}</option>
-            </select>                   
+   </div>
+
+
+   <!--TO DISPLAY ALL BOOKS-->
+   <div class="container-fluid">
+      <div ng-if="mainCtrl.book">
+
+         <div class="col-md-3">
+            <div class="input-group filt-book" style="margin:10px 0px;">           
+                  <span class="input-group-addon">Search by Name
+                  </span>
+                  <select ng-model="searchBookName.name"  style="width:10em; ">
+                     <option class="form-control"  value="" enabled >--Select Name--</option>
+                     <option class="form-control" ng-repeat="item in mainCtrl.allBookArray | unique : 'name'" value="{{item.name}}">{{item.name}}</option>
+                  </select>                   
+            </div>
+         </div>
+
+         <div class="col-md-3">
+            <div class="input-group filt-book" style="margin:10px 0px;">           
+                  <span class="input-group-addon">Search by Publisher
+                  </span>
+                  <select  ng-model="searchBookPub.publisher"  style="width:10em; ">
+                     <option class="form-control"  value="" enabled >--Select Publisher--</option>
+                     <option class="form-control" ng-repeat="item in mainCtrl.allBookArray | unique : 'publisher'" value="{{item.publisher}}">{{item.publisher}}</option>
+                  </select>      
+                  
+            </div>
+
+                  
+          </div>
+
+        <div class="col-md-3">
+            <div class="input-group filt-book" style="margin:10px 0px;">           
+                  <span class="input-group-addon">Search by ISBN
+                  </span>
+                  <select ng-model="searchBookIsbn.isbn"  style="width:10em; ">         
+                     <option class="form-control"  value="" enabled >--Select ISBN--</option>
+                     <option class="form-control"  ng-repeat="item in mainCtrl.allBookArray" value="{{item.isbn}}"  >{{item.isbn}}</option>
+                  </select>                   
+            </div>      
+         </div>
+
+         <div class="col-md-3">
+                <span style="float:right; margin-top:1.5%; margin-right:4%;">
+                       <a href="#/" ng-click="reloadRoute()">Reset Filters
+                         <i class="fa fa-refresh" ></i>
+                       </a>
+                   </span>
+            <button class="mbutton" type="button" ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" style="margin-left: 5px;"></span><span ng-show="mainCtrl.sortAllKey" style="margin-left: 5px;"></span></button>
+         </div>
+
+         <div ng-repeat = "item in mainCtrl.allBookArray | filter:searchBookName | filter:searchBookPub | filter:searchBookIsbn | orderBy: mainCtrl.sortAllKey? '-name':'name'">
+            <books-dir></books-dir>
          </div>
       </div>
-      <div class="col-md-3">
-         <button class="mbutton" type="button" ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" style="margin-left: 5px;"></span><span ng-show="mainCtrl.sortAllKey" style="margin-left: 5px;"></span></button>
-      </div>
-      <div ng-repeat = "item in mainCtrl.allHouseArray | filter:searchHouseName | filter:searchHouseRegion | orderBy: mainCtrl.sortAllKey? '-name':'name'">
-         <houses-dir></houses-dir>
+   </div>
+
+
+   <!--TO DISPLAY ALL HOUSES-->
+   <div class="container-fluid">
+      <div ng-if="mainCtrl.house">
+
+         <div class="col-md-3">
+            <div class="input-group filt-book" style="margin:10px 0px;">           
+                  <span class="input-group-addon">Search by Name
+                  </span>
+                  <select ng-model="searchHouseName.name"  style="width:10em; ">
+                     <option class="form-control"  value="" enabled >--Select Name--</option>
+                     <option class="form-control" ng-repeat="item in mainCtrl.allHouseArray | unique : 'name'" value="{{item.name}}"> {{item.name}}</option>
+                  </select>                   
+            </div>
+         </div>
+         
+         <div class="col-md-3">
+            <div class="input-group filt-book" style="margin:10px 0px;">           
+               <span class="input-group-addon">Search by Region
+               </span>
+               <select ng-model="searchHouseRegion.region"  style="width:10em; ">
+                  <option class="form-control"  value="" enabled >--Select Region--</option>
+                  <option class="form-control" ng-repeat="item in mainCtrl.allHouseArray |  unique : 'region'" ng-if='item.region'  value="{{item.region}}"> {{item.region}}</option>
+               </select>                   
+            </div>
+         </div>
+         <div class="col-md-3">
+            <button class="mbutton" type="button" ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" style="margin-left: 5px;"></span><span ng-show="mainCtrl.sortAllKey" style="margin-left: 5px;"></span></button>
+         </div>
+         <div ng-repeat = "item in mainCtrl.allHouseArray | filter:searchHouseName | filter:searchHouseRegion | orderBy: mainCtrl.sortAllKey? '-name':'name'">
+            <houses-dir></houses-dir>
+         </div>
       </div>
    </div>
 </div>

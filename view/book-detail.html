@@ -6,7 +6,7 @@
             <i class="fa fa-book fa-5x" aria-hidden="true"></i>
            <h2 style="margin: 10px 5px;" ng-if ='data.name != ""'><b> {{ data.name }}  </b></h2>
             <hr style=" border-top: 1px solid black; margin-top: 5px;">
-            <hr/>
+     
          </div>
          <div class="col col-sm-5 col-md-5 text-center">
             <div class="col col-sm-12 col-md-12">
@@ -45,8 +45,8 @@
                <h4><b>Main Characters :</b></h4>         
                <div class="col col-sm-12 col-md-12" ng-if = 'data.povCharacters.length >= 1' ng-repeat ="pov in data.povCharacters">
                   <h6><a ng-href ='#/characters/{{ pov.split("/").pop() }}'  style="color: #81d0e7;">{{ pov}}</a></h6>
-               </div ng-if = 'data.povCharacters.length == 0'>Data Unavailable</div>
-               <div> 
+               <h6 ng-if = "data.povCharacters == ''">Data Unavailable</h6>              
+               </div>
             </div>
 
          </div>
