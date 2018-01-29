@@ -38,12 +38,12 @@
        <!-- Blank space for UI purposes -->
        </div>
 
-         <div class="col col-sm-5 col-md-5 text-center" >
+         <div class="col col-sm-5 col-md-5 " >
 
-            <div class="col col-sm-12 col-md-12">      
+            <div class="col col-sm-12 col-md-12 text-center" >      
        
                <h4><b>Main Characters :</b></h4>         
-               <div class="col col-sm-12 col-md-12" ng-if = 'data.povCharacters.length >= 1' ng-repeat ="pov in data.povCharacters">
+               <div  ng-if = 'data.povCharacters.length >= 1' ng-repeat ="pov in data.povCharacters">
                   <h6><a ng-href ='#/characters/{{ pov.split("/").pop() }}'  style="color: #81d0e7;">{{ pov}}</a></h6>
                <h6 ng-if = "data.povCharacters == ''">Data Unavailable</h6>              
                </div>
@@ -52,7 +52,7 @@
          </div>
 
          <div class="col col-sm-12 col-md-12" style="display: flex;justify-content: center;margin: 10px 0px;">
-             <p><button class="w3-button w3-blue w3-round-xxlarge" class="btn btn-default"  onclick="window.history.back();">back</button></p>
+             <p><button class="w3-button w3-blue w3-round-xxlarge" class="btn btn-default"  onclick="window.history.back();">Back</button></p>
          </div>
       </div>
    </div>

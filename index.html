@@ -9,9 +9,9 @@
       <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-         
-     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity
+       
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
       <!-- CUSTOM stylesheet -->
       <link rel="stylesheet" type="text/css" href="assets/css/file.css">
 
@@ -30,12 +30,16 @@
                <a class="navbar-brand" ng-href="#/"><img src="images/logo.png"/></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
-               <ul class="nav navbar-nav navbar-right">
+               <ul class="nav navbar-nav navbar-right" data-toggle="collapse" data-target="#navbar">
                   <li><a ng-href="#/">Home</a></li>
                </ul>
             </div>
          </div>
       </nav>
+      <br>
+      <br>
+   
+
       <div class="container-fluid" style="text-overflow: ellipsis" ng-view>
       </div>
        <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
@@ -59,17 +63,21 @@ $('#return-to-top').click(function() {      // When arrow is clicked
         scrollTop : 700                       // Scroll to top of body
     }, 500);
 });
-       
+
        </script>
       
       <!-- Angular FILES -->
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
       <script type="text/javascript" src="angular/app.js"></script>
       <script type="text/javascript" src="angular/route.js"></script>
       <script type="text/javascript" src="angular/directives/directive.js"></script>
       <script type="text/javascript" src="angular/services/service.js"></script>
 
+      <script type="text/javascript" src="vendor/jquery/sscript.js"></script>
       <script type="text/javascript" src="angular/controller/script.js"></script>
       <script type="text/javascript" src="angular/controller/mainController.js"></script>
       <script type="text/javascript" src="angular/controller/booksController.js"></script>
