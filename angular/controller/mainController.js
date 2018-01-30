@@ -194,7 +194,7 @@ $scope.descendingButton = true;
         main.house=true;
     }
     
-console.log("Alldara")
-            console.log(main);
+//console.log("Alldara")
+           // console.log(main);
 
 }]); // End Controller

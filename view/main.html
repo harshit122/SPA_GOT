@@ -56,27 +56,40 @@
    <!--TO DISPLAY ALL DATA-->
    <div class="container-fluid" ng-if="mainCtrl.all">
       <div class="row">
-         <div class="col col-sm-2 col-md-2">
+         <div class="col col-sm-1 col-md-1">
        <!-- Blank space for UI purposes -->
        </div>
-         <div class="col col-xs-12 col-sm-12 col-md-6 margins text-center">
-            <div class="input-group search" >
-               <span class="input-group-addon">Search 
-               </span>
-               <input type="text" name="book" class="form-control" placeholder="by Name .." ng-model="searchName.name">
-            </div>
+         <div class=" col-xs-12 col-sm-4 col-md-4 text-center" style="padding:0 !important; margin:10px 0px">
+            
+               <input type="text" name="book" class="form-control" placeholder="by Name .." ng-model="searchName.name" style="width: 95%;margin-left: 3%">
+            
          </div>
-         <div class="col-md-4 col col-xs-12 col-sm-12  text-center" >
-            <button class="mbutton"  ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" ></span><span ng-show="mainCtrl.sortAllKey" ></span></button>
+         
+          <div class="col col-sm-2 col-md-2">
+         <!-- Blank space for UI purposes -->
          </div>
+         
+         <div class=" col-md-4 col-xs-12 col-md-offset-0 col-sm-4" style="padding:0 !important; margin:10px 0px">
+               <select>
+                  <option class="form-control" ng-show="ascendingButton" ng-click="changeToAscendingOrder()" value="" enabled >Assending</option>
+                  <option class="form-control" ng-show="descendingButton" ng-click="changeToDescendingOrder()" >Descending</option>
+               </select>  
+         </div>
+         
+         <div class="col col-sm-1 col-md-1">
+         <!-- Blank space for UI purposes -->
+         </div>
+
       </div>
+
       <div class="row">
-         <div ng-repeat = "item in mainCtrl.allData | orderBy: mainCtrl.sortAllKey? '-name':'name' | filter:searchName">
+         <div ng-repeat = "item in mainCtrl.allData | orderBy: alterOrder | filter:searchName">
             <books-dir ng-if ="item.isbn"></books-dir>
             <houses-dir ng-if ="item.region"></houses-dir>
             <characters-dir ng-if ="item.gender"></characters-dir>
          </div>
       </div>
+
    </div>
 
 
@@ -84,42 +97,40 @@
    <div class="container-fluid ">
       <div ng-if="mainCtrl.character">
          <div class="row">
-
    
-      <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
-                        <select  ng-model="searchCharName.name"  >
-                        <option class="form-control"  value="" enabled >--Select Name--</option>
-                        <option class=" form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'name'" ng-if='item.name' value="{{item.name}}">{{item.name}}</option>
-                     </select>    
-      </div>
-      
-      <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
-                   <select ng-model="searchCharGender.gender"  ">
-                        <option class="form-control"  value="" enabled >--Select Gender--</option>
-                        <option class="form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'gender'" ng-if='item.gender' value="{{item.gender}}">{{item.gender}}</option>
-                     </select>  
-      </div>
-      
-      <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
-                  
-                  <select   ng-model="searchCharAlias.aliases"  >
-                     <option class="form-control"  value="" enabled >--Select Alias--</option>
-                     <option class="form-control" ng-repeat="item in mainCtrl.allCharArray"   ng-if='item.aliases[0]' value="{{item.aliases[0]}}">{{item.aliases[0]}}</option>
-                  </select>                   
-               
-      </div>
-               <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
-                       <select>
-                     <option class="form-control" ng-show="ascendingButton" ng-click="changeToAscendingOrder()" value="" enabled >Assending</option>
-                     <option class="form-control" ng-show="descendingButton" ng-click="changeToDescendingOrder()" >Descending</option>
-                  </select>                   
-               
-        
-                     </div>
-         </div>                  
-           <div ng-repeat = "item in mainCtrl.allCharArray | filter:searchCharName | filter:searchCharGender | filter:searchCharAlias |orderBy: alterOrder">
-               <characters-dir></characters-dir>
+            <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
+               <select  ng-model="searchCharName.name"  >
+                     <option class="form-control"  value="" enabled >--Select Name--</option>
+                     <option class=" form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'name'" ng-if='item.name' value="{{item.name}}">{{item.name}}</option>
+               </select>             
             </div>
+            
+            <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
+               <select ng-model="searchCharGender.gender"  ">
+                  <option class="form-control"  value="" enabled >--Select Gender--</option>
+                  <option class="form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'gender'" ng-if='item.gender' value="{{item.gender}}">{{item.gender}}</option>
+               </select>  
+            </div>
+            
+            <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">                  
+               <select   ng-model="searchCharAlias.aliases"  >
+                  <option class="form-control"  value="" enabled >--Select Alias--</option>
+                  <option class="form-control" ng-repeat="item in mainCtrl.allCharArray"   ng-if='item.aliases[0]' value="{{item.aliases[0]}}">{{item.aliases[0]}}</option>
+               </select>     
+            </div>
+            <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
+               <select>
+                  <option class="form-control" ng-show="ascendingButton" ng-click="changeToAscendingOrder()" value="" enabled >Assending</option>
+                  <option class="form-control" ng-show="descendingButton" ng-click="changeToDescendingOrder()" >Descending</option>
+               </select>  
+            </div>
+
+         </div>     
+
+         <div ng-repeat = "item in mainCtrl.allCharArray | filter:searchCharName | filter:searchCharGender | filter:searchCharAlias |orderBy: alterOrder">
+            <characters-dir></characters-dir>
+         </div>
+
       </div>
    </div>
 
@@ -127,50 +138,39 @@
    <!--TO DISPLAY ALL BOOKS-->
    <div class="container-fluid">
       <div ng-if="mainCtrl.book">
+         <div class="row">
 
-         <div class="col-md-3">
-            <div class="input-group filt-book" style="margin:10px 0px;">           
-                  <span class="input-group-addon">Search by Name
-                  </span>
-                  <select ng-model="searchBookName.name"  style="width:10em; ">
+            <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
+               <select  ng-model="searchBookName.name"  >
                      <option class="form-control"  value="" enabled >--Select Name--</option>
-                     <option class="form-control" ng-repeat="item in mainCtrl.allBookArray | unique : 'name'" value="{{item.name}}">{{item.name}}</option>
-                  </select>                   
+                     <option class=" form-control" ng-repeat="item in mainCtrl.allBookArray | unique : 'name'" ng-if='item.name' value="{{item.name}}">{{item.name}}</option>
+               </select>             
             </div>
-         </div>
 
-         <div class="col-md-3">           
-            <div class="input-group filt-book" style="margin:10px 0px;">           
-                  <span class="input-group-addon">Search by Publisher
-                  </span>
-                  <select  ng-model="searchBookPub.publisher"  style="width:10em; ">
-                     <option class="form-control"  value="" enabled >--Select Publisher--</option>
-                     <option class="form-control" ng-repeat="item in mainCtrl.allBookArray | unique : 'publisher'" value="{{item.publisher}}">{{item.publisher}}</option>
-                  </select>                     
-            </div>                   
-          </div>
+           <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
+               <select  ng-model="searchBookPub.publisher">
+                  <option class="form-control"  value="" enabled >--Select Publisher--</option>
+                  <option class="form-control" ng-repeat="item in mainCtrl.allBookArray | unique : 'publisher'" value="{{item.publisher}}">{{item.publisher}}</option>
+               </select>             
+            </div>
 
-        <div class="col-md-3">
-            <div class="input-group filt-book" style="margin:10px 0px;">           
-                  <span class="input-group-addon">Search by ISBN
-                  </span>
-                  <select ng-model="searchBookIsbn.isbn"  style="width:10em; ">         
-                     <option class="form-control"  value="" enabled >--Select ISBN--</option>
-                     <option class="form-control"  ng-repeat="item in mainCtrl.allBookArray" value="{{item.isbn}}"  >{{item.isbn}}</option>
-                  </select>                   
-            </div>      
-         </div>
+            <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
+              <select ng-model="searchBookIsbn.isbn">         
+                  <option class="form-control"  value="" enabled >--Select ISBN--</option>
+                  <option class="form-control"  ng-repeat="item in mainCtrl.allBookArray" value="{{item.isbn}}"  >{{item.isbn}}</option>
+               </select>              
+            </div>
+  
 
-         <div class="col-md-3">
-                <span style="float:right; margin-top:1.5%; margin-right:4%;">
-                       <a href="#/" ng-click="reloadRoute()">Reset Filters
-                         <i class="fa fa-refresh" ></i>
-                       </a>
-                   </span>
-            <button class="mbutton" type="button" ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" style="margin-left: 5px;"></span><span ng-show="mainCtrl.sortAllKey" style="margin-left: 5px;"></span></button>
-         </div>
+             <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
+               <select>
+                  <option class="form-control" ng-show="ascendingButton" ng-click="changeToAscendingOrder()" value="" enabled >Assending</option>
+                  <option class="form-control" ng-show="descendingButton" ng-click="changeToDescendingOrder()" >Descending</option>
+               </select>  
+            </div>                                                                  
 
-         <div ng-repeat = "item in mainCtrl.allBookArray | filter:searchBookName | filter:searchBookPub | filter:searchBookIsbn | orderBy: mainCtrl.sortAllKey? '-name':'name'">
+      </div>
+         <div ng-repeat = "item in mainCtrl.allBookArray | filter:searchBookName | filter:searchBookPub | filter:searchBookIsbn | orderBy: alterOrder">
             <books-dir></books-dir>
          </div>
       </div>
@@ -180,32 +180,30 @@
    <!--TO DISPLAY ALL HOUSES-->
    <div class="container-fluid">
       <div ng-if="mainCtrl.house">
+         <div class="row">
 
-         <div class="col-md-3">
-            <div class="input-group filt-book" style="margin:10px 0px;">           
-                  <span class="input-group-addon">Search by Name
-                  </span>
-                  <select ng-model="searchHouseName.name"  style="width:10em; ">
-                     <option class="form-control"  value="" enabled >--Select Name--</option>
-                     <option class="form-control" ng-repeat="item in mainCtrl.allHouseArray | unique : 'name'" value="{{item.name}}"> {{item.name}}</option>
-                  </select>                   
+            <div class="col-md-4  col-xs-12 col-sm-4"  style="padding:0 !important; margin:10px 0px">
+               <select ng-model="searchHouseName.name" >
+                  <option class="form-control"  value="" enabled >--Select Name--</option>
+                  <option class="form-control" ng-repeat="item in mainCtrl.allHouseArray | unique : 'name'" value="{{item.name}}"> {{item.name}}</option>
+               </select>    
             </div>
-         </div>
-         
-         <div class="col-md-3">
-            <div class="input-group filt-book" style="margin:10px 0px;">           
-               <span class="input-group-addon">Search by Region
-               </span>
-               <select ng-model="searchHouseRegion.region"  style="width:10em; ">
+            
+            <div class="col-md-4 col-xs-12 col-sm-4"  style="padding:0 !important; margin:10px 0px"> 
+               <select ng-model="searchHouseRegion.region">
                   <option class="form-control"  value="" enabled >--Select Region--</option>
                   <option class="form-control" ng-repeat="item in mainCtrl.allHouseArray |  unique : 'region'" ng-if='item.region'  value="{{item.region}}"> {{item.region}}</option>
-               </select>                   
-            </div>
+               </select>   
+            </div>        
+
+            <div class="col-md-4 col-xs-12 col-sm-4" style="padding:0 !important; margin:10px 0px">
+               <select>
+                  <option class="form-control" ng-show="ascendingButton" ng-click="changeToAscendingOrder()" value="" enabled >Assending</option>
+                  <option class="form-control" ng-show="descendingButton" ng-click="changeToDescendingOrder()" >Descending</option>
+               </select>  
+            </div>     
          </div>
-         <div class="col-md-3">
-            <button class="mbutton" type="button" ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" style="margin-left: 5px;"></span><span ng-show="mainCtrl.sortAllKey" style="margin-left: 5px;"></span></button>
-         </div>
-         <div ng-repeat = "item in mainCtrl.allHouseArray | filter:searchHouseName | filter:searchHouseRegion | orderBy: mainCtrl.sortAllKey? '-name':'name'">
+         <div ng-repeat = "item in mainCtrl.allHouseArray | filter:searchHouseName | filter:searchHouseRegion | orderBy: alterOrder">
             <houses-dir></houses-dir>
          </div>
       </div>
