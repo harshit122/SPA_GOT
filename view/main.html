@@ -81,49 +81,45 @@
 
 
    <!--TO DISPLAY ONLY CHARACTERS-->
-   <div class="container-fluid">
+   <div class="container-fluid ">
       <div ng-if="mainCtrl.character">
+         <div class="row">
 
-         <div class="col-md-3 col col-xs-12 col-sm-3">
-            <div class="input-group filt-book" style="margin:10px 0px;">           
-                  <span class="input-group-addon">Search by Name
-                  </span>
-                  <select ng-model="searchCharName.name"  style="width:10em; ">
-                     <option class="input-group filt-book input-group-addon"  value="" enabled >--Select Name--</option>
-                     <option class="input-group filt-book input-group-addon" ng-repeat="item in mainCtrl.allCharArray | unique : 'name'" ng-if='item.name' value="{{item.name}}">{{item.name}}</option>
+   
+      <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
+                        <select  ng-model="searchCharName.name"  >
+                        <option class="form-control"  value="" enabled >--Select Name--</option>
+                        <option class=" form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'name'" ng-if='item.name' value="{{item.name}}">{{item.name}}</option>
+                     </select>    
+      </div>
+      
+      <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
+                   <select ng-model="searchCharGender.gender"  ">
+                        <option class="form-control"  value="" enabled >--Select Gender--</option>
+                        <option class="form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'gender'" ng-if='item.gender' value="{{item.gender}}">{{item.gender}}</option>
+                     </select>  
+      </div>
+      
+      <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
+                  
+                  <select   ng-model="searchCharAlias.aliases"  >
+                     <option class="form-control"  value="" enabled >--Select Alias--</option>
+                     <option class="form-control" ng-repeat="item in mainCtrl.allCharArray"   ng-if='item.aliases[0]' value="{{item.aliases[0]}}">{{item.aliases[0]}}</option>
                   </select>                   
-            </div>
-         </div>
-
-         <div class="col-md-3 col col-xs-12 col-sm-3">
-             <div class="input-group filt-book" style="margin:10px 0px;">           
-                  <span class="input-group-addon">Search by Gender
-                  </span>
-                  <select ng-model="searchCharGender.gender"  style="width:10em; ">
-                     <option class="form-control"  value="" enabled >--Select Gender--</option>
-                     <option class="form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'gender'" ng-if='item.gender' value="{{item.gender}}">{{item.gender}}</option>
+               
+      </div>
+               <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
+                       <select>
+                     <option class="form-control" ng-show="ascendingButton" ng-click="changeToAscendingOrder()" value="" enabled >Assending</option>
+                     <option class="form-control" ng-show="descendingButton" ng-click="changeToDescendingOrder()" >Descending</option>
                   </select>                   
-            </div>
-         </div>
-
-         <div class="col-md-3 col col-xs-12 col-sm-3">
-            <div class="input-group filt-book" style="margin:10px 0px;">           
-               <span class="input-group-addon">Search by Alias
-               </span>
-               <select ng-model="searchCharAlias.aliases"  style="width:10em; ">
-                  <option class="form-control"  value="" enabled >--Select Alias--</option>
-                  <option class="form-control" ng-repeat="item in mainCtrl.allCharArray"   ng-if='item.aliases[0]' value="{{item.aliases[0]}}">{{item.aliases[0]}}</option>
-               </select>                   
-            </div>
-
-         </div>
-         <div class="col-md-3 col col-xs-12 col-sm-3">
+               
         
-            <button class="mbutton" type="button" ng-click="mainCtrl.sortAllKey =! mainCtrl.sortAllKey">Sort Alphabetically<span  ng-show="!mainCtrl.sortAllKey" style="margin-left: 5px;"></span><span ng-show="mainCtrl.sortAllKey" style="margin-left: 5px;"></span></button>
-         </div>
-         <div ng-repeat = "item in mainCtrl.allCharArray | filter:searchCharName | filter:searchCharGender | filter:searchCharAlias |orderBy: mainCtrl.sortAllKey? '-name':'name'">
-            <characters-dir></characters-dir>
-         </div>
+                     </div>
+         </div>                  
+           <div ng-repeat = "item in mainCtrl.allCharArray | filter:searchCharName | filter:searchCharGender | filter:searchCharAlias |orderBy: alterOrder">
+               <characters-dir></characters-dir>
+            </div>
       </div>
    </div>
 
@@ -143,18 +139,15 @@
             </div>
          </div>
 
-         <div class="col-md-3">
+         <div class="col-md-3">           
             <div class="input-group filt-book" style="margin:10px 0px;">           
                   <span class="input-group-addon">Search by Publisher
                   </span>
                   <select  ng-model="searchBookPub.publisher"  style="width:10em; ">
                      <option class="form-control"  value="" enabled >--Select Publisher--</option>
                      <option class="form-control" ng-repeat="item in mainCtrl.allBookArray | unique : 'publisher'" value="{{item.publisher}}">{{item.publisher}}</option>
-                  </select>      
-                  
-            </div>
-
-                  
+                  </select>                     
+            </div>                   
           </div>
 
         <div class="col-md-3">

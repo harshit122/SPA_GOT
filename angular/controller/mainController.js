@@ -47,8 +47,36 @@ myApp.controller("mainController",["cService",'$route','$scope',function(cServic
       }
 
 
+$scope.descendingButton = true;
+  $scope.ascendingButton = false;
 
+  // Here, we pass the 'orderBy' value to html //
+  // According to which the data is sorted //
+  // Note: Here 'name' is for ascending order and '-name' is for reverse and 'name' is the element in the ng-repeat's array //
+  // The data is then sorted according to the 'sign' and element passed //
+  $scope.alterOrder = 'name';
 
+  // These functions are triggered when the sort buttons are clicked //
+  // The functions are linked to the html using 'ng-click' //
+  // 1. When descending order button is clicked //
+  $scope.changeToDescendingOrder = function() {
+    // Pass '-' ie: the sign to tell to sort in reverse order and 'name', the element according to which the data is to be sorted //
+    $scope.alterOrder = '-name';
+    console.log("Descen");
+    // Toggling Buttons //
+    $scope.descendingButton = false;
+    $scope.ascendingButton = true;
+  }
+  // 1. When ascending order button is clicked //
+  $scope.changeToAscendingOrder = function() {
+    // Pass '' ie: the sign to tell to sort in ascending order and 'name', the element according to which the data is to be sorted //
+    $scope.alterOrder = 'name';
+    console.log("Descen");
+    // Toggling Buttons //
+    $scope.descendingButton = true;
+    $scope.ascendingButton = false;
+  }
+//console.log("sad")
 
 	this.books= function (){
         
@@ -120,7 +148,8 @@ myApp.controller("mainController",["cService",'$route','$scope',function(cServic
          //   console.log("all houses")
          //    console.log(main.allHouseArray);
             main.allData.push(main.allHouses);
-            
+            //console.log("sad")
+           // console.log(main)
       
             
             //main.name=response.data[0].name;
