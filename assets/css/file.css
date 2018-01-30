@@ -1,8 +1,9 @@
 
 select{
   width: 95%;
-  margin-left: 3%;
+  margin-left: 4%;
 }
+
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
       width: 70%;
