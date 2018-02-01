@@ -1,38 +1,15 @@
- $(document).ready(function(){
 
-	$("#myCarousel").carousel("cycle");
-	 // Activate Carousel
-    //$("#myCarousel").carousel("pause");
+           // ===== Scroll to Top ==== 
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= 1000) {        // If page is scrolled more than 50px
+        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+    } else {
+        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+    }
+});
 
-    // Click on the button to start sliding 
-    $("#myBtn").click(function(){
-        $("#myCarousel").carousel("cycle");
-    });
-
-    // Click on the button to stop sliding 
-    $("#myBtn2").click(function(){
-        $("#myCarousel").carousel("pause");
-    });
-    
-    // Enable Carousel Indicators
-    $(".item1").click(function(){
-        $("#myCarousel").carousel(0);
-    });
-    $(".item2").click(function(){
-        $("#myCarousel").carousel(1);
-    });
-    $(".item3").click(function(){
-        $("#myCarousel").carousel(2);
-    });
-    $(".item4").click(function(){
-        $("#myCarousel").carousel(3);
-    });
-    
-    // Enable Carousel Controls
-    $(".left").click(function(){
-        $("#myCarousel").carousel("prev");
-    });
-    $(".right").click(function(){
-        $("#myCarousel").carousel("next");
-    });
+$('#return-to-top').click(function() {
+    $('html,body').animate({
+        scrollTop: $("#filters").offset().top},
+        'slow');
 });

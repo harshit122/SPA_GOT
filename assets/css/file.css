@@ -1,14 +1,12 @@
-
-select{
+      .mbutton {border-radius: 50%;}
+   
+select
+{
   width: 95%;
-  margin-left: 4%;
+  margin-left: 5%;
 }
 
-  .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
-  }
+
 .search{
   margin:1em 2em 1em 2em;
 }
