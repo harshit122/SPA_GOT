@@ -195,6 +195,6 @@ $scope.descendingButton = true;
     }
     
 //console.log("Alldara")
-           // console.log(main);
+           console.log(main);
 
 }]); // End Controller

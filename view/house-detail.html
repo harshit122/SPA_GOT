@@ -54,13 +54,15 @@
                <div class="col col-sm-12 col-md-12">
                   <h4>
                      Current Lord : 
-                     <h6><a ng-href='#/characters/{{ data.currentLord.split("/").pop() }}' style="color: #81d0e7;">{{ data.currentLord || "Data Unavailable" }}</a></h6>
+                     <h6><a ng-href='#/characters/{{ data.currentLord.split("/").pop() }}' style="color: #81d0e7;">{{ data.currentLord  }}</a></h6>
+                     <h6 ng-if="data.currentLord==''">Data Unavailable</h6> 
                   </h4>
                </div>
                <div class="col col-sm-12 col-md-12">
                   <h4>
                      Overlord :
-                     <h6 class="h6"><a ng-href='#/houses/{{ data.overlord.split("/").pop() }}' style="color: #81d0e7;">{{ data.overlord || "Data Unavailable" }}</a></h6>
+                     <h6 class="h6"><a ng-href='#/houses/{{ data.overlord.split("/").pop() }}' style="color: #81d0e7;">{{ data.overlord  }}</a></h6>
+                     <h6 ng-if="data.overlord==''">Data Unavailable</h6> 
                   </h4>
                </div>
                <div class="col col-sm-12 col-md-12">
