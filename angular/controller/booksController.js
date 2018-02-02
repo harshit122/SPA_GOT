@@ -9,6 +9,7 @@ myApp.controller("booksController",["$http","cService","$routeParams",function($
 	this.l;
 	
 	
+        console.log("in bok")
 	this.booksDetail = function(){
 
 	

@@ -63,7 +63,6 @@ myApp.controller("mainController",["cService",'$route','$scope',function(cServic
 //console.log("sad")
 
 	this.books= function (){
-        
         for(var i=1;i<=12;i++){  // to get 12 books
 
 		cService.booksApi(i)
@@ -179,6 +178,6 @@ myApp.controller("mainController",["cService",'$route','$scope',function(cServic
     }
     
 //console.log("Alldara")
-           console.log(main);
+    //       console.log(main);
 
 }]); // End Controller
