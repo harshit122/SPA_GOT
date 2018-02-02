@@ -1,8 +1,12 @@
- <a ng-href='#/books/{{ item.url.split("/").pop() }}' >
- <div class="col-xs-11 col-md-4 col-md-offset-1 text-center books ">
-   <img src="images/book.png" style="width: 30px;height: 30px"/>
-   <h3 class="text-center">{{ item.name }}</h3>
-   <h5 class="text-center">ISBN : {{ item.isbn }}</h5>
-   <h5 class="text-center">No of Pages : {{ item.numberOfPages }}</h5>
-   <h5 class="text-center">Publishers : {{ item.publisher }}</h5>    
-</div></a>
+
+
+<a ng-href='#/books/{{ item.url.split("/").pop() }}' >
+   <div class="col-xs-11 col-md-4 col-md-offset-1 text-center books ">
+      <img src="images/book.png" style="width: 30px;height: 30px"/>
+      <h3 class="text-center">{{ item.name }}</h3>
+      <h5 class="text-center">ISBN : {{ item.isbn }}</h5>
+      <h5 class="text-center">No of Pages : {{ item.numberOfPages }}</h5>
+      <h5 class="text-center">Publishers : {{ item.publisher }}</h5>
+   </div>
+</a>
+

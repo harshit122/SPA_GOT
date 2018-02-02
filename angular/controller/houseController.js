@@ -1,35 +1,34 @@
-myApp.controller("houseController",["$http","cService","$routeParams",function($http,cService,$routeParams){
-	
-	var main = this;
+myApp.controller("houseController", ["$http", "cService", "$routeParams", function($http, cService, $routeParams) {
 
-	this.hData = [];
+    var main = this;
 
-	this.hId = $routeParams.id3;
-	this.titles;
+    this.hData = [];
 
-	this.hDetails = function(){
+    this.hId = $routeParams.id3;
+    this.titles;
 
-		cService.housesApi(main.hId)
-		.then(function successCallback(response){
-		
-			main.hData.push(response.data);
+    this.hDetails = function() {
 
-			this.names =[]; // For more titles
-			
+        cService.housesApi(main.hId)
+            .then(function successCallback(response) {
 
-			for(var i in response.data.titles){
-				this.names.push(response.data.titles[i]);
-			}
+                main.hData.push(response.data);
 
-			main.titles = this.names.toString(); 
+                this.names = []; // For more titles
 
 
-		},function errorCallback(reason){
-			alert("Error in GET");
-		})
+                for (var i in response.data.titles) {
+                    this.names.push(response.data.titles[i]);
+                }
 
-	}; // function ends
+                main.titles = this.names.toString();
 
-	this.hDetails();
-//	console.log(this)
+
+            }, function errorCallback(reason) {
+                alert("Error in GET");
+            })
+
+    }; // function ends
+
+    this.hDetails();
 }]) // controller ends

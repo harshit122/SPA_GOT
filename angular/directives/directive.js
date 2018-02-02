@@ -1,31 +1,34 @@
-myApp.directive("booksDir",function(){
+myApp.directive("booksDir", function() {
 
-		return {
+    return {
 
-			restrict : "E" ,
-			templateUrl : "view/books-template.html",
-			controller : function($scope){	
-		
-		}
-	}});
-myApp.directive("charactersDir",function(){
+        restrict: "E",
+        templateUrl: "view/books-template.html",
+        controller: function($scope) {
 
-		return{
+        }
+    }
+});
+myApp.directive("charactersDir", function() {
 
-			restrict : "E" ,
-			templateUrl : "view/character-template.html",
-			controller : function($scope){
-		
-		}
+    return {
 
-	}});
-myApp.directive("housesDir",function(){
+        restrict: "E",
+        templateUrl: "view/character-template.html",
+        controller: function($scope) {
 
-		return{
+        }
 
-			restrict : "E" ,
-			templateUrl : "view/houses-template.html",
-			controller : function($scope){
-			
-		}
-	}})
+    }
+});
+myApp.directive("housesDir", function() {
+
+    return {
+
+        restrict: "E",
+        templateUrl: "view/houses-template.html",
+        controller: function($scope) {
+
+        }
+    }
+})

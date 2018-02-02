@@ -14,3 +14,6 @@ $('#return-to-top').click(function() {
         'slow');
 });
 
+function aa(){
+$("#target").val($("#target option:first").val());
+}
