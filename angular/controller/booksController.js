@@ -9,7 +9,7 @@ myApp.controller("booksController",["$http","cService","$routeParams",function($
 	this.l;
 	
 	
-        console.log("in bok")
+       // console.log("in bok")
 	this.booksDetail = function(){
 
 	
@@ -17,8 +17,8 @@ myApp.controller("booksController",["$http","cService","$routeParams",function($
 		.then(function successCallback(response){
 	
 		main.booksData.push(response.data);
-		console.log("books controller")
-		console.log(response.data)
+		//console.log("books controller")
+		//console.log(response.data)
 
 		this.people =[]; // authors
 		

@@ -14,26 +14,3 @@ $('#return-to-top').click(function() {
         'slow');
 });
 
-
-   function changeOrder() {
-    // Pass '-' ie: the sign to tell to sort in reverse order and 'name', the element according to which the data is to be sorted //
-    console.log("dsad");
-    console.log(this.descendingButton);
-    if(this.descendingButton){
-
-      this.descendingButton = false
-      this.alterOrder = '-name';  
-      this.ascendingButton = true;  
-    }
-    else if(this.ascendingButton){
-      //console.log("sss")
-      this.descendingButton = true
-      this.alterOrder = 'name';  
-      this.ascendingButton = false;
-    }
-    
-    //console.log("Descen");
-    // Toggling Buttons //
-    //$scope.descendingButton = false;
-    //$scope.ascendingButton = true;
-  }

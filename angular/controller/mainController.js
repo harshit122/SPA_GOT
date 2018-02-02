@@ -31,8 +31,8 @@ myApp.controller("mainController",["cService",'$route','$scope',function(cServic
   // The functions are linked to the html using 'ng-click' //
   // 1. When descending order button is clicked //
   $scope.changeOrder = function() {
-    console.log("sasas");
-    console.log($scope.selected);
+   // console.log("sasas");
+   // console.log($scope.selected);
     // Pass '-' ie: the sign to tell to sort in reverse order and 'name', the element according to which the data is to be sorted //
     if($scope.descendingButton){
       $scope.descendingButton = false
@@ -86,7 +86,7 @@ myApp.controller("mainController",["cService",'$route','$scope',function(cServic
 
         },function errorCallback(reason){
 		console.log("Error in GET");
-        console.log(reason)
+      //  console.log(reason)
 		});
         }
 	}
