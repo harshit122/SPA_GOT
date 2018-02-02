@@ -30,11 +30,18 @@
          <!-- Blank space for UI purposes -->
          </div>
          
-         <div class=" col-md-4 col-xs-12 col-md-offset-0 col-sm-4" style="padding:0 !important; margin:10px 0px">
-               <select>
-                  <option class="form-control" ng-show="ascendingButton" ng-click="changeToAscendingOrder()" value="" enabled >Assending</option>
-                  <option class="form-control" ng-show="descendingButton" ng-click="changeToDescendingOrder()" >Descending</option>
-               </select>  
+         <div  class=" col-md-4 col-xs-12 col-md-offset-0 col-sm-4" style="padding:0 !important; margin:10px 0px">
+                    
+            <button type="button" ng-show="ascendingButton" ng-click="changeOrder()" class = "form-control" name="button" style="width: 95%;">
+                  <span style="float:left;"> Sort</span>
+                  <i class="fa fa-long-arrow-down fa-2x" aria-hidden="true" style="float:right;"></i>
+             </button>
+             <button type="button" ng-show="descendingButton" ng-click="changeOrder()" class = "form-control" name="button" style="width: 95%;">
+                  <span style="float:left;">Sort</span>
+                  <i class="fa fa-long-arrow-up fa-2x" aria-hidden="true" style="float:right;"></i>
+             </button>
+
+          
          </div>
          
          <div class="col col-sm-1 col-md-1">
@@ -60,30 +67,34 @@
          <div class="row">
    
             <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
-               <select  ng-model="searchCharName.name"  >
+               <select class="hh" ng-model="searchCharName.name"  >
                      <option class="form-control"  value="" enabled >--Select Name--</option>
                      <option class=" form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'name'" ng-if='item.name' value="{{item.name}}">{{item.name}}</option>
                </select>             
             </div>
             
             <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
-               <select ng-model="searchCharGender.gender"  ">
+               <select class="hh" ng-model="searchCharGender.gender"  ">
                   <option class="form-control"  value="" enabled >--Select Gender--</option>
                   <option class="form-control" ng-repeat="item in mainCtrl.allCharArray | unique : 'gender'" ng-if='item.gender' value="{{item.gender}}">{{item.gender}}</option>
                </select>  
             </div>
             
             <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">                  
-               <select   ng-model="searchCharAlias.aliases"  >
+               <select class="hh"  ng-model="searchCharAlias.aliases"  >
                   <option class="form-control"  value="" enabled >--Select Alias--</option>
                   <option class="form-control" ng-repeat="item in mainCtrl.allCharArray"   ng-if='item.aliases[0]' value="{{item.aliases[0]}}">{{item.aliases[0]}}</option>
                </select>     
             </div>
             <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
-               <select>
-                  <option class="form-control" ng-show="ascendingButton" ng-click="changeToAscendingOrder()" value="" enabled >Assending</option>
-                  <option class="form-control" ng-show="descendingButton" ng-click="changeToDescendingOrder()" >Descending</option>
-               </select>  
+               <button type="button" ng-show="ascendingButton" ng-click="changeOrder()" class = "form-control hh" name="button" style="width: 95%;">
+                    <span style="float:left;">Sort</span>
+                    <i class="fa fa-long-arrow-down fa-2x" aria-hidden="true" style="float:right;"></i>
+               </button>
+               <button type="button" ng-show="descendingButton" ng-click="changeOrder()" class = "form-control hh" name="button" style="width: 95%;">
+                    <span style="float:left;">Sort</span>
+                    <i class="fa fa-long-arrow-up fa-2x" aria-hidden="true" style="float:right;"></i>
+               </button>
             </div>
 
          </div>     
@@ -102,21 +113,21 @@
          <div class="row">
 
             <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
-               <select  ng-model="searchBookName.name"  >
+               <select class="hh" ng-model="searchBookName.name"  >
                      <option class="form-control"  value="" enabled >--Select Name--</option>
                      <option class=" form-control" ng-repeat="item in mainCtrl.allBookArray | unique : 'name'" ng-if='item.name' value="{{item.name}}">{{item.name}}</option>
                </select>             
             </div>
 
            <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
-               <select  ng-model="searchBookPub.publisher">
+               <select class="hh" ng-model="searchBookPub.publisher">
                   <option class="form-control"  value="" enabled >--Select Publisher--</option>
                   <option class="form-control" ng-repeat="item in mainCtrl.allBookArray | unique : 'publisher'" value="{{item.publisher}}">{{item.publisher}}</option>
                </select>             
             </div>
 
             <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
-              <select ng-model="searchBookIsbn.isbn">         
+              <select class="hh" ng-model="searchBookIsbn.isbn">         
                   <option class="form-control"  value="" enabled >--Select ISBN--</option>
                   <option class="form-control"  ng-repeat="item in mainCtrl.allBookArray" value="{{item.isbn}}"  >{{item.isbn}}</option>
                </select>              
@@ -124,10 +135,14 @@
   
 
              <div class="col-md-3  col-xs-6 col-sm-3" style="padding:0 !important; margin:10px 0px">
-               <select>
-                  <option class="form-control" ng-show="ascendingButton" ng-click="changeToAscendingOrder()" value="" enabled >Assending</option>
-                  <option class="form-control" ng-show="descendingButton" ng-click="changeToDescendingOrder()" >Descending</option>
-               </select>  
+                      <button type="button" ng-show="ascendingButton" ng-click="changeOrder()" class = "form-control hh" name="button" style="width: 95%;">
+                        <span style="float:left;">Sort</span>
+                        <i class="fa fa-long-arrow-down fa-2x" aria-hidden="true" style="float:right;"></i>
+                   </button>
+                   <button type="button" ng-show="descendingButton" ng-click="changeOrder()" class = "form-control hh" name="button" style="width: 95%;">
+                        <span style="float:left;">Sort</span>
+                        <i class="fa fa-long-arrow-up fa-2x" aria-hidden="true" style="float:right;"></i>
+                   </button>
             </div>                                                                  
 
       </div>
@@ -144,24 +159,28 @@
          <div class="row">
 
             <div class="col-md-4  col-xs-12 col-sm-4"  style="padding:0 !important; margin:10px 0px">
-               <select ng-model="searchHouseName.name" >
+               <select class="hh" ng-model="searchHouseName.name" >
                   <option class="form-control"  value="" enabled >--Select Name--</option>
                   <option class="form-control" ng-repeat="item in mainCtrl.allHouseArray | unique : 'name'" value="{{item.name}}"> {{item.name}}</option>
                </select>    
             </div>
             
             <div class="col-md-4 col-xs-12 col-sm-4"  style="padding:0 !important; margin:10px 0px"> 
-               <select ng-model="searchHouseRegion.region">
+               <select class="hh" ng-model="searchHouseRegion.region">
                   <option class="form-control"  value="" enabled >--Select Region--</option>
                   <option class="form-control" ng-repeat="item in mainCtrl.allHouseArray |  unique : 'region'" ng-if='item.region'  value="{{item.region}}"> {{item.region}}</option>
                </select>   
             </div>        
 
             <div class="col-md-4 col-xs-12 col-sm-4" style="padding:0 !important; margin:10px 0px">
-               <select>
-                  <option class="form-control" ng-show="ascendingButton" ng-click="changeToAscendingOrder()" value="" enabled >Assending</option>
-                  <option class="form-control" ng-show="descendingButton" ng-click="changeToDescendingOrder()" >Descending</option>
-               </select>  
+                <button type="button" ng-show="ascendingButton" ng-click="changeOrder()" class = "form-control hh" name="button" style="width: 95%;">
+                    <span style="float:left;">Sort</span>
+                    <i class="fa fa-long-arrow-down fa-2x" aria-hidden="true" style="float:right;"></i>
+               </button>
+               <button type="button" ng-show="descendingButton" ng-click="changeOrder()" class = "form-control hh" name="button" style="width: 95%;">
+                    <span style="float:left;">Sort</span>
+                    <i class="fa fa-long-arrow-up fa-2x" aria-hidden="true" style="float:right;"></i>
+               </button> 
             </div>     
          </div>
          <div ng-repeat = "item in mainCtrl.allHouseArray | filter:searchHouseName | filter:searchHouseRegion | orderBy: alterOrder">
@@ -172,31 +191,3 @@
 </div>
 
 
-<script type="text/javascript">
-    $(document).ready(function(){
-   $("#myCarousel").carousel("cycle");
-    // Activate Carousel
-    //$("#myCarousel").carousel("pause");
-    // Enable Carousel Indicators
-    $(".item1").click(function(){
-        $("#myCarousel").carousel(0);
-    });
-    $(".item2").click(function(){
-        $("#myCarousel").carousel(1);
-    });
-    $(".item3").click(function(){
-        $("#myCarousel").carousel(2);
-    });
-    $(".item4").click(function(){
-        $("#myCarousel").carousel(3);
-    });
-    
-    // Enable Carousel Controls
-    $(".left").click(function(){
-        $("#myCarousel").carousel("prev");
-    });
-    $(".right").click(function(){
-        $("#myCarousel").carousel("next");
-    });
-});
-</script>

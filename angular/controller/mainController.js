@@ -1,35 +1,5 @@
 
 
-// here we define our unique filter
-
-myApp.filter('unique', function() {
-   // we will return a function which will take in a collection
-   // and a keyname
-   return function(collection, keyname) {
-      // we define our output and keys array;
-      var output = [], 
-          keys = [];
-      
-      // we utilize angular's foreach function
-      // this takes in our original collection and an iterator function
-      angular.forEach(collection, function(item) {
-   
-    
-          // we check to see whether our object exists
-          var key = item[keyname];
-          // if it's not already part of our keys array
-          if(keys.indexOf(key) === -1) {
-              // add it to our keys array
-              keys.push(key); 
-              // push this item to our final output array
-              output.push(item);
-          }
-      });
-      // return our array which should be devoid of
-      // any duplicates
-      return output;
-   };
-});
 myApp.controller("mainController",["cService",'$route','$scope',function(cService,$route,$scope){
 
 	var main = this;
@@ -46,8 +16,7 @@ myApp.controller("mainController",["cService",'$route','$scope',function(cServic
        $route.reload();
       }
 
-
-$scope.descendingButton = true;
+  $scope.descendingButton = true;
   $scope.ascendingButton = false;
 
   // Here, we pass the 'orderBy' value to html //
@@ -56,26 +25,41 @@ $scope.descendingButton = true;
   // The data is then sorted according to the 'sign' and element passed //
   $scope.alterOrder = 'name';
 
+
+
   // These functions are triggered when the sort buttons are clicked //
   // The functions are linked to the html using 'ng-click' //
   // 1. When descending order button is clicked //
-  $scope.changeToDescendingOrder = function() {
+  $scope.changeOrder = function() {
+    console.log("sasas");
+    console.log($scope.selected);
     // Pass '-' ie: the sign to tell to sort in reverse order and 'name', the element according to which the data is to be sorted //
-    $scope.alterOrder = '-name';
-    console.log("Descen");
+    if($scope.descendingButton){
+      $scope.descendingButton = false
+      $scope.alterOrder = '-name';  
+      $scope.ascendingButton = true;  
+    }
+    else if($scope.ascendingButton){
+      //console.log("sss")
+      $scope.descendingButton = true
+      $scope.alterOrder = 'name';  
+      $scope.ascendingButton = false;
+    }
+    
+    //console.log("Descen");
     // Toggling Buttons //
-    $scope.descendingButton = false;
-    $scope.ascendingButton = true;
+    //$scope.descendingButton = false;
+    //$scope.ascendingButton = true;
   }
   // 1. When ascending order button is clicked //
-  $scope.changeToAscendingOrder = function() {
+ /* $scope.changeToAscendingOrder = function() {
     // Pass '' ie: the sign to tell to sort in ascending order and 'name', the element according to which the data is to be sorted //
     $scope.alterOrder = 'name';
-    console.log("Descen");
+    //console.log("Descen");
     // Toggling Buttons //
     $scope.descendingButton = true;
     $scope.ascendingButton = false;
-  }
+  }*/
 //console.log("sad")
 
 	this.books= function (){
