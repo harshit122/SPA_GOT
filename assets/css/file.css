@@ -4,6 +4,7 @@
  select {
      width: 95%;
      margin-left: 5%;
+     font-size: 50px;
 }
  .hh{
      height:2.5em;
@@ -11,6 +12,7 @@
  .search{
      margin:1em 2em 1em 2em;
 }
+
  .houses{
      -webkit-box-sizing: content-box;
      -moz-box-sizing: content-box;
